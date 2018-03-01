@@ -29,3 +29,15 @@ server.get('*', (req, res) => {
     })
   })
 })
+
+// 下面是 fetchItem api
+server.get("/api/item", (req, res, next) => {
+  res.json({
+    title: "Item",
+    content: "I am item"
+  })
+})
+
+
+
+server.listen(8080)

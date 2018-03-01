@@ -8,8 +8,9 @@ export function createRouter () {
   return new Router({
     mode: 'history',
     routes: [
-      { path: '/', component: () => import('./components/Index.vue') },
-      { path: '/list', component: () => import('./components/List.vue') }
+      { path: '/', component: (resolve) => require(['COMPONENTS/Index'], resolve) },
+      { path: '/list', component: () => require(['COMPONENTS/List'], resolve) },
+      { path: '/item', component: () => require(['COMPONENTS/Item'], resolve) }
     ]
   })
 }
