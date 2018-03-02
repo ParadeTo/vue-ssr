@@ -1,5 +1,3 @@
 <template>
-  <div class="">
-    vue
-  </div>
+  <router-view></router-view> 
 </template>

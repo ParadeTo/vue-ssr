@@ -5,5 +5,5 @@
 import axios from 'axios'
 
 export function fetchItem (id) {
-  return axios.get('/api/item')
+  return axios.get(`/api/item/${id}`)
 }
