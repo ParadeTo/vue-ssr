@@ -5,19 +5,21 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js --open --hot",
-    "build": "webpack --config ./build/webpack.dev.conf.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.conf.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.conf.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.5.13",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

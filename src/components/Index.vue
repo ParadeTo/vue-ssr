@@ -1,4 +1,3 @@
-<!-- Item.vue -->
 <template>
   <div class="">
     首页
