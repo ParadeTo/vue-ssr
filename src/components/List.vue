@@ -25,10 +25,6 @@ export default {
     return store.dispatch('fetchItems')
   },
   data () {
-    this.$options.asyncData({
-      store: this.$store,
-      route: this.$route
-    })
     return {
       title: "",
       content: ""

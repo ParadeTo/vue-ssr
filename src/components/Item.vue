@@ -13,10 +13,6 @@ export default {
     return store.dispatch('fetchItem', route.params.id)
   },
   data () {
-    this.$options.asyncData({
-      store: this.$store,
-      route: this.$route
-    })
     return {}
   },
   computed: {
