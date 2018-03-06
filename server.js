@@ -1,10 +1,18 @@
 /**
  * Created by ayou on 18/1/25.
  */
-const express = require('express')
-const bodyParser = require('body-parser')
+ const Vue = require('vue')
+ const express = require('express')
+ const bodyParser = require('body-parser')
+ const fs = require('fs')
+ const path = require('path')
+ const { createBundleRenderer } = require('vue-server-renderer')
+ const bundle = require('./dist/vue-ssr-server-bundle.json')
+ const server = express()
 
-const server = express()
+ const renderer = createBundleRenderer(bundle, {
+   template: fs.readFileSync('./index.template.html', 'utf-8')
+ })
 
 // 这个方法返回一个仅仅用来解析json格式的中间件。这个中间件能接受任何body中任何Unicode编码的字符。支持自动的解析gzip和 zlib。
 server.use(bodyParser.json());
@@ -25,6 +33,22 @@ server.get("/api/items", (req, res, next) => {
 server.post("/api/items", (req, res, next) => {
   items[id] = req.body
   res.json({ id, item: items[id++] })
+})
+
+// 服务端渲染
+server.get('*', (req, res) => {
+  const context = { url: req.originalUrl }
+  renderer.renderToString(context, (err, html) => {
+    if (err) {
+      if (err.code === 404) {
+        res.status(404).end('Page not found')
+      } else {
+        res.status(500).end('Internal Server Error')
+      }
+    } else {
+      res.end(html)
+    }
+  })
 })
 
 server.listen(8081)
