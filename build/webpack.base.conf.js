@@ -40,13 +40,9 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [
-          path.join(config.projectRoot, 'src'),
-          // path.join(projectRoot, 'node_modules/vue-awesome'),
-          // path.join(projectRoot, 'node_modules/vue-echarts')
+          path.join(config.projectRoot, 'src')
         ],
-        // exclude: /node_modules(?![\\/]vue-echarts[\\/])/
-        // exclude: /node_modules/
-        exclude: /node_modules(?![\\/]vue-awesome[\\/])/
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
