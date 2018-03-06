@@ -19,10 +19,6 @@ export default {
     })
     return {}
   },
-  // created() {
-  //   console.log(this.fetchItem)
-  //   this.fetchItem(this.$route.params.id)
-  // },
   computed: {
     // 从 store 的 state 对象中的获取 item。
     item () {
