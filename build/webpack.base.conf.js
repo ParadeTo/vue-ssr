@@ -4,8 +4,6 @@ const webpack = require('webpack')
 
 var env = process.env.NODE_ENV
 
-console.log(env)
-
 module.exports = {
   entry: {
     app: './src/entry-client.js'

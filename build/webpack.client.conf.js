@@ -8,9 +8,6 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const config = require('./config')
 
 module.exports = merge(baseWebpackConfig, {
-  entry: {
-    app: './src/entry-client.js'
-  },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       // beautify: false,

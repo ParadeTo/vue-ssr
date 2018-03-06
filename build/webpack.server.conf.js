@@ -16,20 +16,6 @@ module.exports = merge(baseWebpackConfig, {
     libraryTarget: 'commonjs2',
   },
   plugins: [
-     new VueSSRServerPlugin(),
-     new HtmlWebpackPlugin({
-       filename: "index.html",
-       template: 'index.template.html',
-       inject: true,      // 是否注入 html
-       minify: {
-         removeComments: true,
-         collapseWhitespace: true,
-         removeAttributeQuotes: false
-         // more options:
-         // https://github.com/kangax/html-minifier#options-quick-reference
-       },
-       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-       chunksSortMode: 'dependency'
-     }),
+     new VueSSRServerPlugin()
   ]
 })

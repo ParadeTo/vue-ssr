@@ -1,8 +1,10 @@
 <template>
   <div class="">
     <ul>
-      <li v-for="item in itemList">
-        <h2>{{item.title}}</h2>
+      <li v-for="(item, k) in itemList">
+        <h2>
+          <router-link :to="`/item/${k}`">{{item.title}}</router-link>
+        </h2>
         <p>{{item.content}}</p>
       </li>
     </ul>
