@@ -8,9 +8,9 @@ export function createRouter () {
   return new Router({
     mode: 'history',
     routes: [
-      { path: '/', component: (resolve) => require(['COMPONENTS/Index'], resolve) },
-      { path: '/list', component: () => require(['COMPONENTS/List'], resolve) },
-      { path: '/item', component: () => require(['COMPONENTS/Item'], resolve) }
+      { path: '/', component: () => import('COMPONENTS/Index') },
+      { path: '/list', component: () => import('COMPONENTS/List') },
+      { path: '/item/:id', component: () => import('COMPONENTS/Item') }
     ]
   })
 }
